@@ -1,4 +1,4 @@
-# Using Remote Sensing Data to Identify Areas Affected by Wildfire
+## Geospatial analysis of Thomas Fire Burn Area (2017)
 
 ![Image of wildfire on coast captured by USGS.](https://images.unsplash.com/photo-1722083854858-79fb7ea85380?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
 
