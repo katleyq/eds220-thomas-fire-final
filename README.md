@@ -25,6 +25,7 @@ The repository has the following structure:
 ```
 eds220-hwk4
 │   README.md
+└───blog-post_files
 │   blog-post.ipynb
 │   blog-post.html
 │   blog-post.pdf
