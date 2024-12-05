@@ -10,40 +10,39 @@ python: /opt/anaconda3/bin/python
 jupyter: eds220-env
 ---
 
-## Geospatial Analysis of Thomas Fire Burn Area (2017)
-
 ![Thomas Fire at Faria Beach](data/Thomas-Fire-Faria-Beach.jpg)
 
 Photo Credit: [Ray Ford, Noozhawk](https://news.ucsb.edu/2023/021283/thomas-fire-research-reveals-ash-can-fertilize-oceans)
 
 ### About
-In December 2017, the Thomas Fire burned through 281,000 acres of land spread through both Santa Barbara and Ventura counties. According to the California Department of Forestry and Fire Protection, the Thomas Fire destroyed 1,063 residential & commercial structures and injured 2 fire personnel. The impacts of the fire were not only devasting for humans, but also for the surrounding environment. The Thomas Fire devasted wildlife, displaced many ecological communities, and caused poor quality for an extended period of time. 
+
+In December 2017, the Thomas Fire burned through 281,000 acres of land spread through both Santa Barbara and Ventura counties. According to the California Department of Forestry and Fire Protection, the Thomas Fire destroyed 1,063 residential & commercial structures and injured 2 fire personnel. The impacts of the fire were not only devasting for humans, but also for the surrounding environment. The Thomas Fire devasted wildlife, displaced many ecological communities, and caused poor quality for an extended period of time.
 
 The **motivation** for this post is to demonstrate how to use geospatial analysis in Python to analyze the environmental impacts of the Thomas Fire. We'll first analyze air quality data in Santa Barbara county from the months leading up to the fire and following the fire. Then, we'll use satellite imagery of multispectral bands to try to visualize the burn scar. Finally, we'll use land use and land cover data to identify the types of ecosystems that were affected by the fire.
 
-
 ### Github Repository
 
-The full analysis is located in this Github repository:
-[https://github.com/katleyq/eds220-thomas-fire-final](https://github.com/katleyq/eds220-thomas-fire-final)
+The full analysis is located in this Github repository: <https://github.com/katleyq/eds220-thomas-fire-final>
 
 ### Highlights
-In this analysis of the Thomas Fire, we'll accomplish the following:
-- Time series analysis and visualization of air quality index (AQI) of affected burn area
-- Raster analysis of landsat data to visualize burn areas using false color image
-- Analysis of landcover statistics to visualize ecosystems affected by fire
 
+In this analysis of the Thomas Fire, we'll accomplish the following:
+
+-   Time series analysis and visualization of air quality index (AQI) of affected burn area
+
+-   Raster analysis of landsat data to visualize burn areas using false color image
+
+-   Analysis of landcover statistics to visualize ecosystems affected by fire
 
 ### Data
 
 This repository utilizes the following datasets:
 
-1) **Air Quality Index (AQI)**: This data was retrieved from the [US Environmental Protection Agency](https://www.epa.gov). It contains air quality data throughout the US, and we subset this dataset for Santa Barbara County.
+1)  **Air Quality Index (AQI)**: This data was retrieved from the [US Environmental Protection Agency](https://www.epa.gov). It contains air quality data throughout the US, and we subset this dataset for Santa Barbara County.
 
-2) **Thomas Fire Perimeter Data**: This data was retrieved from US governement's data catalogue. It contains spatial data regarding fire perimeters and associated metadata. We subset this data for the 2017 Thomas Fire. (Original Source:  [California Fire Perimeter Data](https://catalog.data.gov/dataset/california-fire-perimeters-all-b3436))
+2)  **Thomas Fire Perimeter Data**: This data was retrieved from US governement's data catalogue. It contains spatial data regarding fire perimeters and associated metadata. We subset this data for the 2017 Thomas Fire. (Original Source: [California Fire Perimeter Data](https://catalog.data.gov/dataset/california-fire-perimeters-all-b3436))
 
-3) **Landsat Data**: This data was retrieved from the Microsoft Planetary Computer Data Catalogue, pre-processed by Dr. Carmen Galaz-Garcia, and stored on the MEDS computational server. This data contains multispectral data for the area of interest. (Original Source:  [Microsoft Planetary Computer Data Catalogue](https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2))
-
+3)  **Landsat Data**: This data was retrieved from the Microsoft Planetary Computer Data Catalogue, pre-processed by Dr. Carmen Galaz-Garcia, and stored on the MEDS computational server. This data contains multispectral data for the area of interest. (Original Source: [Microsoft Planetary Computer Data Catalogue](https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2))
 
 ### Import libraries
 
@@ -66,7 +65,6 @@ from matplotlib.offsetbox import AnchoredText # for map compass
 ## **Part 1** - Time Series Analysis of Air Quality Index (AQI) of Thomas Fire Burn Area
 
 Next, we will analyze AQI in Santa Barbra over time. We'll download AQI data from 2017 through 2018 from the EPA website using a URL.
-
 
 ### Load Data
 
@@ -115,6 +113,7 @@ aqi_sb['five_day_average'] = rolling_average
 ```
 
 ### Plotting
+
 Finally, we'll want to plot the data to see how AQI changes before and after the Thomas Fire. For reference, we'll add a red dotted line on the plot signifying when the Thomas Fire occurred.
 
 ```{python}
@@ -145,6 +144,7 @@ The plot above shows a 5-day rolling average of air quality index in Santa Barba
 In this section, we'll create false color image of Santa Barbara county following the Thomas Fire to visualize the burn scar using landsat data. We'll plot shortwave infrared in the red channel, near infrared in the green channel, and red in the blue channel. This technique is used in remote sensing to visualize moisture content and vegetation of each pixel. This combination of spectral bands uncovers the burn scar due to wildfire, which we'll see in the Figure 2.
 
 ### Load data
+
 We'll first load the thomas fire perimeter we retrieved from CALFIRE's fire perimeter dataset. To see how we obtained the shapefile, check out the `thomas-fire-perimeter.ipynb` notebook in the notebooks folder of this github repository.
 
 Then we'll load the netCDF file containing landsat data using `rioxarray`.
@@ -165,8 +165,9 @@ Since the landsat data has 3 dimensions and 1 of the dimensions is redudant, we'
 landsat = landsat.squeeze().drop_vars('band')
 ```
 
-#### **Important** : 
-When working with 2 spatial datasets, we always need to ensure the coordinate reference systems (CRS) of our spatial data  match. Let's check if the CRS of the landsat and thomas fire perimeter match.
+#### **Important** :
+
+When working with 2 spatial datasets, we always need to ensure the coordinate reference systems (CRS) of our spatial data match. Let's check if the CRS of the landsat and thomas fire perimeter match.
 
 ```{python}
 # Print out CRS of landsat and thomas_fire CRSs
@@ -261,21 +262,20 @@ plt.show()
 
 (still figuring this part out)
 
-
 # Conclusion
 
-The 2017 Thomas Fire significantly impacted both humans and the environment. This geospatial analysis demonstrats the power of Python and open source data for investigating the environmental impacts of wildfire and highlighting key insights into the fire's aftermath. Through this analysis, we visualized the change in air quality in the surrounding area, identified the spatial extent of the burn scar using satellite imagery, and quantified the affected ecosystems using land cover data. 
+The 2017 Thomas Fire significantly impacted both humans and the environment. This geospatial analysis demonstrats the power of Python and open source data for investigating the environmental impacts of wildfire and highlighting key insights into the fire's aftermath. Through this analysis, we visualized the change in air quality in the surrounding area, identified the spatial extent of the burn scar using satellite imagery, and quantified the affected ecosystems using land cover data.
 
 ### References
-Microsoft Planetary Computer. (Access Date: November 2024). Landsat Collection 2, Level-2 [Dataset]. U.S. Geological Survey (USGS). https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2
+
+Microsoft Planetary Computer. (Access Date: November 2024). Landsat Collection 2, Level-2 \[Dataset\]. U.S. Geological Survey (USGS). https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2
 
 Riebeek, H. (2014, March 4). Why is that forest red and that cloud blue? NASA Earth Observatory. https://earthobservatory.nasa.gov/features/FalseColor
 
-U.S. Environmental Protection Agency. Air quality index data. [Dataset].  https://aqs.epa.gov/aqsweb/airdata/download_files.html
+U.S. Environmental Protection Agency. Air quality index data. \[Dataset\]. https://aqs.epa.gov/aqsweb/airdata/download_files.html
 
-U.S. Geological Survey. (2021, November 12). Common Landsat band combinations [Image]. U.S. Department of the Interior. https://www.usgs.gov/media/images/common-landsat-band-combinations
+U.S. Geological Survey. (2021, November 12). Common Landsat band combinations \[Image\]. U.S. Department of the Interior. https://www.usgs.gov/media/images/common-landsat-band-combinations
 
-U.S. Geological Survey. (Access Date: November 2024). California fire perimeters (all) [Dataset]. Data.gov. https://catalog.data.gov/dataset/california-fire-perimeters-all-b3436
+U.S. Geological Survey. (Access Date: November 2024). California fire perimeters (all) \[Dataset\]. Data.gov. https://catalog.data.gov/dataset/california-fire-perimeters-all-b3436
 
 "Thomas Fire (December 4, 2017)." California Department of Forestry and Fire Protection, https://www.fire.ca.gov/incidents/2017/12/4/thomas-fire/.
-
