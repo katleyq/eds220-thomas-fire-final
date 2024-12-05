@@ -7,6 +7,9 @@
 
 This purpose of this repository is to analyze the air quality index (AQI) of the Thomas Fire burn area over time and to demonstrate how to use remote sensing data to identify burn areas. We'll use the Thomas Fire that occurred in Santa Barbara County, California in 2017 as a case study.
 
+**Highlights**:
+This repository demonstrates the following:
+
 **Repository Structure:**
 
 This repository contains 3 notebooks: 
@@ -34,13 +37,13 @@ eds220-hwk4
 
 **Data**
 
-This notebook utilizes the following datasets:
+This repository utilizes the following datasets:
 
-1) Air Quality Index (AQI): This data was retrieved from the [US Environmental Protection Agency](https://www.epa.gov). It contains air quality data through the US, and we subset this dataset for Santa Barbara County.
+1) **Air Quality Index (AQI)**: This data was retrieved from the [US Environmental Protection Agency](https://www.epa.gov). It contains air quality data through the US, and we subset this dataset for Santa Barbara County.
 
-2) Thomas Fire Perimeter Data: This data was retrieved from US governement's data catalogue. Original Source:[California Fire Perimeter Data](https://catalog.data.gov/dataset/california-fire-perimeters-all-b3436) It contains spatial data regarding fire perimeters and associated metadata. We subset this data for the 2017 Thomas Fire.
+2) **Thomas Fire Perimeter Data**: This data was retrieved from US governement's data catalogue. Original Source:[California Fire Perimeter Data](https://catalog.data.gov/dataset/california-fire-perimeters-all-b3436) It contains spatial data regarding fire perimeters and associated metadata. We subset this data for the 2017 Thomas Fire.
 
-3) Landsat Data: This data was retrieved from the Microsoft Planetary Computer Data Catalogue, pre-processed by Dr. Carmen Galaz-Garcia, and stored on the MEDS computational server.  Original Source: [Microsoft Planetary Computer Data Catalogue](https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2)
+3) **Landsat Data**: This data was retrieved from the Microsoft Planetary Computer Data Catalogue, pre-processed by Dr. Carmen Galaz-Garcia, and stored on the MEDS computational server.  Original Source: [Microsoft Planetary Computer Data Catalogue](https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2)
 
 
 **References**
