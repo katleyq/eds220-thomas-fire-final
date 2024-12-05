@@ -5,6 +5,7 @@ date: 'December 4, 2024'
 format:
   html:
     code-fold: true
+    embed-resources: true
 python: /opt/anaconda3/bin/python
 jupyter: eds220-env
 ---
