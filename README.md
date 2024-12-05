@@ -25,6 +25,9 @@ The repository has the following structure:
 ```
 eds220-hwk4
 │   README.md
+│   blog-post.ipynb
+│   blog-post.html
+│   blog-post.pdf
 └───notebooks
     │   thomas-fire-aqi.ipynb 
     │   thomas-fire-perimeter.ipynb 
