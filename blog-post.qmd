@@ -137,7 +137,7 @@ plt.subplots_adjust(bottom=0.2)  # Increase bottom margin
 plt.figtext(0.5, 0, "Figure 1: A line plot of 5-day rolling average of air quality index for Santa Barbara County from 2017-2018.", wrap=True, horizontalalignment='center', fontsize=10)
 ```
 
-The plot above shows a 5-day rolling average of air quality index in Santa Barbara County from January 2017 to Decemeber 2018. We can clearly see a signficant spike in AQI right after the Thomas Fire started.
+The plot above shows a 5-day rolling average of air quality index in Santa Barbara County from January 2017 to December 2018. We can clearly see a signficant spike in AQI right after the Thomas Fire started.
 
 ## **Part 2** - Using landsat data to visualize Thomas Fire burn area by creating false color image
 
