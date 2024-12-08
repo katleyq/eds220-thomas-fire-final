@@ -10,6 +10,12 @@ This purpose of this repository is to analyze the air quality index (AQI) of the
 **Highlights**:
 This repository demonstrates the following:
 
+-   Time series analysis and visualization of air quality index (AQI) of affected burn area
+
+-   Raster analysis of landsat data to visualize burn areas using false color image
+
+-   Analysis of landcover statistics to visualize ecosystems affected by fire
+
 **Repository Structure:**
 
 This repository contains 3 notebooks: 
